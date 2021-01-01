@@ -7,8 +7,8 @@ import org.springframework.stereotype.Component;
 @Aspect
 @Component
 public class LoggingAspect {
-  @Before("@annotation(com.example.aop.Loggable)")
-  public void LoggingAdvice(){
-    System.out.println("Running Advice for @Loggable");
+  @Before("@annotation(com.example.aop.LogMethod)")
+  public void logMethod(){
+    System.out.println("Method \"restCall\" was called");
   }
 }

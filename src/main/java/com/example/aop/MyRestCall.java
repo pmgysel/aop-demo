@@ -5,10 +5,9 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 public class MyRestCall {
-  @Loggable
+  @LogMethod
   @RequestMapping(path = "/api/get")
-  public String runMethod() {
-    System.out.println("hello world");
+  public String restCall() {
     return "hello world";
   }
 }
