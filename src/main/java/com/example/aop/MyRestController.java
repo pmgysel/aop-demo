@@ -1,19 +1,19 @@
 package com.example.aop;
 
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-public class MyRestCall {
+public class MyRestController {
   @LogMethod
-  @RequestMapping(path = "/api/greeting/{name}")
-  public String greeting(@PathVariable(value = "name") String name) {
+  @GetMapping(path = "/api/greeting/{name}")
+  public String hello(@PathVariable(value = "name") String name) {
     return "Hello " + name + "!";
   }
 
   @LogMethod
-  @RequestMapping(path = "/api/order/{menu}")
+  @GetMapping(path = "/api/order/{menu}")
   public String order(@PathVariable(value = "menu") String menu) {
     return "You placed an order for the menu " + menu + "!";
   }

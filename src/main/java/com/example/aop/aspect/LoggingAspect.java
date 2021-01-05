@@ -14,7 +14,7 @@ import java.util.Arrays;
 public class LoggingAspect {
 
   @Before("@annotation(com.example.aop.LogMethod)")
-  public void logMethodName(JoinPoint joinPoint) {
+  public void logMethodExecution(JoinPoint joinPoint) {
     String method = joinPoint.getSignature().getName();
     String params = Arrays.toString(joinPoint.getArgs());
     System.out.println("Method [" + method + "] gets called with parameters " + params);
@@ -25,7 +25,7 @@ public class LoggingAspect {
     long startTime = System.currentTimeMillis();
     Object proceed = joinPoint.proceed();
     long duration = System.currentTimeMillis() - startTime;
-    System.out.println("Exeution took [" + duration + "ms]");
+    System.out.println("Execution took [" + duration + "ms]");
     return proceed;
   }
 
